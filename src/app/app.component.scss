@@ -1,0 +1,15 @@
+@import "../assets/variables.scss";
+//variables
+
+.wrapper {
+  width: 600px;
+  height: 700px;
+
+  background-color: $bg-color;
+
+  margin: 1.5rem auto;
+  padding: 0.5rem;
+
+  border: 2px solid $border-color;
+  border-radius: 0.5rem;
+}
