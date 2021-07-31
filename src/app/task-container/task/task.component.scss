@@ -1,0 +1,125 @@
+// variables
+@import "../../../assets/variables.scss";
+
+.task-container {
+  display: flex;
+  position: relative;
+  margin-top: 10px;
+}
+
+.pinned {
+  position: absolute;
+  color: $rose;
+  left: -20px;
+  top: 2px;
+}
+
+.task-controls {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.task {
+  font-size: 0.9rem;
+  .title {
+    color: $light-grey;
+  }
+  .description {
+    color: $dark-grey;
+    margin: 10px 0;
+  }
+}
+
+//checkbox
+.label {
+  position: relative;
+  .fake {
+    width: 20px;
+    height: 20px;
+    background-color: #484f58;
+    border-radius: 0.2rem;
+    border: 2px solid $border-color;
+    margin-right: 15px;
+  }
+  .checkbox {
+    display: none;
+
+    &:checked + .check {
+      display: inline-block;
+    }
+  }
+  .check {
+    color: $light-grey;
+    position: absolute;
+    left: 4px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+
+    i {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+//dropdown
+.task_menu {
+  color: $light-grey;
+  font-size: 1.2rem;
+  position: relative;
+
+  i {
+    cursor: pointer;
+  }
+}
+.drop-down {
+  z-index: 3;
+
+  position: absolute;
+  right: -10px;
+  top: 30px;
+
+  padding: 0.5rem;
+
+  border-radius: 0.2rem;
+
+  width: 170px;
+
+  background-color: #484f58;
+
+  list-style: none;
+
+  li {
+    color: lighten($dark-grey, 20%);
+    margin: 0.2rem;
+    font-size: 0.9rem;
+
+    i {
+      margin: 0.5rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      background-color: #52575e;
+      color: #fff;
+    }
+  }
+
+  // border effect
+  &:before {
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 10px;
+    top: -6px;
+    border: 10px solid;
+    border-color: transparent #484f58 #484f58 transparent;
+
+    transform: rotate(225deg);
+  }
+}

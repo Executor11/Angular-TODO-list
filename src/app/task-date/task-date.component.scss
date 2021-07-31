@@ -1,0 +1,51 @@
+@import "../../assets/variables.scss";
+//variables
+
+.date_wrapper {
+  height: 150px;
+
+  margin-top: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .date {
+    margin: 3rem;
+
+    .week_date,
+    .full_date {
+      text-align: center;
+    }
+
+    .week_date {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $light-color;
+
+      margin: 0.5rem;
+    }
+  }
+}
+
+.full_date,
+.right-arrow,
+.left-arrow {
+  color: $dark-grey;
+}
+
+.right-arrow,
+.left-arrow {
+  font-size: 2rem;
+  font-weight: 100;
+  cursor: pointer;
+
+  text-shadow: 1px 1px 2px #111;
+
+  transition: transform 0.3s ease;
+
+  &:hover {
+    color: $light-color;
+    transform: scale(1.2);
+  }
+}

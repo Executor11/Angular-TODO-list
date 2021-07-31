@@ -1,0 +1,90 @@
+//variables
+@import "../../assets/variables.scss";
+
+.forms-control {
+  margin: 1rem 3rem;
+}
+
+.task {
+  height: 40px;
+  width: 100%;
+
+  background-color: $border-color;
+  color: $dark-grey;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  padding: 0px 1rem;
+
+  display: flex;
+  align-items: center;
+
+  outline: none;
+  cursor: pointer;
+
+  border: 1px solid $border-color;
+  border-radius: 0.3rem;
+
+  &.task-forms {
+    height: 150px;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 0.5rem;
+
+    input {
+      height: 40px;
+
+      font-size: 0.9rem;
+      border: 1px solid $border-color;
+      border-radius: 0.3rem;
+      outline: none;
+
+      &.input_text {
+        width: 100%;
+        margin: 0.3rem auto;
+        padding: 0 1rem;
+      }
+
+      &.input_date {
+        width: 40%;
+        margin: 0.3rem 0;
+        text-align: center;
+        font-size: 1rem;
+      }
+      background-color: $light-grey;
+    }
+  }
+  .controls {
+    width: 100%;
+
+    button {
+      margin-left: 60px;
+
+      height: 40px;
+      //   width: 80px;
+
+      background-color: transparent;
+      outline: none;
+      border: none;
+      cursor: pointer;
+
+      color: $light-color;
+
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+}
+
+i {
+  font-size: 1rem;
+  margin: 0 20px 0 0px;
+  &.fa-align-right {
+    transform: rotate(180deg);
+  }
+  &.fa-pencil-alt {
+    font-size: 0.7em;
+  }
+}

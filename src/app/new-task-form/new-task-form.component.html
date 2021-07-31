@@ -1,3 +1,39 @@
-<p>
-  new-task-form works!
-</p>
+<div class="forms-control">
+  <form *ngIf="newTask; else tasks">
+    <div class="task task-forms">
+      <input
+        [(ngModel)]="title"
+        name="title"
+        type="text"
+        class="input_text"
+        placeholder="Task title..."
+      />
+      <input
+        type="text"
+        class="input_text"
+        placeholder="Task description..."
+        [(ngModel)]="description"
+        name="description"
+      />
+      <div class="controls">
+        <input
+          type="date"
+          class="input_date"
+          min="01.01.2019"
+          max="31.12.2022"
+          [(ngModel)]="date"
+          name="date"
+        />
+        <button class="cancel" (click)="cancelTask()">cancel</button>
+        <button class="add" (click)="addTask()">Add Task</button>
+      </div>
+    </div>
+  </form>
+
+  <ng-template #tasks>
+    <div class="task" (click)="newTask = true">
+      <i class="fas fa-align-right"></i>
+      Add a task... <i class="fas fa-pencil-alt"></i>
+    </div>
+  </ng-template>
+</div>
