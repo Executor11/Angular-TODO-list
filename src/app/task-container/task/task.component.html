@@ -8,15 +8,22 @@
   <div class="task-controls">
     <div class="task">
       <div class="title">{{ task.title }}</div>
-      <div class="description">{{ task?.description }}</div>
+      <div class="description" *ngIf="task.description">
+        {{ task?.description }}
+      </div>
     </div>
-    <div class="task_menu" appDropDown #dropMenu (click)="hasClass()">
+    <div
+      class="task_menu"
+      #dropMenu
+      (mouseenter)="dropDownMenu()"
+      (mouseleave)="hideDropDown()"
+    >
       <i class="fas fa-ellipsis-h"></i>
 
       <ul class="drop-down" *ngIf="isOpen">
         <li (click)="pinTask()">
           <i class="fas fa-thumbtack"></i>
-          {{ task.isPinned ? "Unpin task" : "Pin to the top" }}
+          {{ task.isPinned ? "Unpin" : "Pin on the top" }}
         </li>
         <li><i class="fas fa-sticky-note"></i> Add a memo</li>
         <li (click)="deleteTask()"><i class="fas fa-trash-alt"></i> Delete</li>

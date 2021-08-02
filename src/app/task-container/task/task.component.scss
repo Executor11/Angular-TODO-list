@@ -28,13 +28,14 @@
   }
   .description {
     color: $dark-grey;
-    margin: 10px 0;
+    margin: 5px 0 0 0;
   }
 }
 
 //checkbox
 .label {
   position: relative;
+
   .fake {
     width: 20px;
     height: 20px;
@@ -69,10 +70,18 @@
 .task_menu {
   color: $light-grey;
   font-size: 1.2rem;
+
   position: relative;
+
+  height: 30px;
+  width: 30px;
+
+  display: flex;
+  justify-content: flex-end;
 
   i {
     cursor: pointer;
+    color: $dark-grey;
   }
 }
 .drop-down {
@@ -84,9 +93,10 @@
 
   padding: 0.5rem;
 
-  border-radius: 0.2rem;
+  border-radius: 0.4rem;
+  border: 1px solid $border-color;
 
-  width: 170px;
+  width: 150px;
 
   background-color: #484f58;
 
@@ -98,7 +108,7 @@
     font-size: 0.9rem;
 
     i {
-      margin: 0.5rem;
+      margin: 0.4rem;
     }
 
     &:hover {

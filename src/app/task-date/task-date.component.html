@@ -1,8 +1,12 @@
 <div class="date_wrapper">
-  <div class="left-arrow">{{ "<" }}</div>
-  <div class="date">
-    <div class="week_date">Wednesday</div>
-    <div class="full_date">Mar 23, 2017</div>
+  <div class="left-arrow" (click)="prevDay()">
+    <i class="fas fa-chevron-left"></i>
   </div>
-  <div class="right-arrow">></div>
+  <div class="date">
+    <div class="week_date">{{ date | date: "EEEE" }}</div>
+    <div class="full_date">{{ date | date }}</div>
+  </div>
+  <div class="right-arrow" (click)="nextDay()">
+    <i class="fas fa-chevron-right"></i>
+  </div>
 </div>

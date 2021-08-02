@@ -1,4 +1,4 @@
-import { Task } from 'src/app/shared/task';
+import { Task } from 'src/app/shared/task.model';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({

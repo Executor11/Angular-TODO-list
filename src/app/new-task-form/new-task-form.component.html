@@ -21,17 +21,20 @@
           class="input_date"
           min="01.01.2019"
           max="31.12.2022"
-          [(ngModel)]="date"
           name="date"
+          [ngModel]="date | date: 'yyyy-MM-dd'"
+          (ngModelChange)="date = $event"
         />
         <button class="cancel" (click)="cancelTask()">cancel</button>
-        <button class="add" (click)="addTask()">Add Task</button>
+        <button class="add" (click)="addTask()" [disabled]="title == ''">
+          Add Task
+        </button>
       </div>
     </div>
   </form>
 
   <ng-template #tasks>
-    <div class="task" (click)="newTask = true">
+    <div class="task" (click)="newTaskCreate()">
       <i class="fas fa-align-right"></i>
       Add a task... <i class="fas fa-pencil-alt"></i>
     </div>

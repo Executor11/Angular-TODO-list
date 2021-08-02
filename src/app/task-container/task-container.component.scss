@@ -1,0 +1,11 @@
+.tasks-container {
+  width: 100%;
+  overflow-x: auto;
+  max-height: 430px;
+  height: auto;
+  min-height: 430px;
+
+  margin-bottom: 10px;
+
+  flex: 1;
+}

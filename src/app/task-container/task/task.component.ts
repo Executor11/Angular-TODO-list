@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
-import { Task } from 'src/app/shared/task';
+import { Task } from 'src/app/shared/task.model';
 import { TasksService } from 'src/app/shared/tasks.service';
 
 @Component({
@@ -21,8 +21,12 @@ export class TaskComponent implements OnInit {
   ngOnInit() {}
 
   // танец с бубнами понимаю что я творю, но лучше пока не знаю
-  hasClass() {
+  dropDownMenu() {
     this.isOpen = !this.dropMenu.nativeElement.classList.contains('open');
+  }
+  hideDropDown() {
+    this.isOpen = false;
+    this.dropMenu.nativeElement.classList.remove('open');
   }
 
   // pin task

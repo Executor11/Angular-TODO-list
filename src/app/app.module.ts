@@ -10,8 +10,8 @@ import { NewTaskFormComponent } from './new-task-form/new-task-form.component';
 import { TaskContainerComponent } from './task-container/task-container.component';
 import { FormsModule } from '@angular/forms';
 import { TaskComponent } from './task-container/task/task.component';
-import { DropDownDirective } from './shared/drop-down.directive';
 import { IsPinnedPipe } from './pipes/is-pinned.pipe';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -23,10 +23,10 @@ import { IsPinnedPipe } from './pipes/is-pinned.pipe';
     DefaultTasksComponent,
     PinnedTasksComponent,
     TaskComponent,
-    DropDownDirective,
+
     IsPinnedPipe,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, ClickOutsideModule],
   providers: [],
   bootstrap: [AppComponent],
 })

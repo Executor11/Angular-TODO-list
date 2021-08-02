@@ -1,6 +1,9 @@
 <div class="pinned-tasks">
   <app-task
-    *ngFor="let task of tasksService.getTasks() | isPinned: true"
+    *ngFor="
+      let task of tasksService.getTasks() | isPinned: true;
+      trackBy: identify
+    "
     [task]="task"
   ></app-task>
 </div>

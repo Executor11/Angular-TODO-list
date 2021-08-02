@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../shared/tasks.service';
-import { Task } from 'src/app/shared/task';
+import { Task } from 'src/app/shared/task.model';
 
 @Component({
   selector: 'app-new-task-form',
@@ -12,11 +12,9 @@ export class NewTaskFormComponent implements OnInit {
 
   title = '';
   description = '';
-  date: Date;
+  date = new Date();
 
-  constructor(public taskService: TasksService) {
-    this.date = new Date();
-  }
+  constructor(public taskService: TasksService) {}
 
   ngOnInit() {}
 
@@ -25,20 +23,28 @@ export class NewTaskFormComponent implements OnInit {
     this.title = '';
     this.description = '';
     this.date = new Date();
+
+    // for service to share between task-container height
+  }
+
+  newTaskCreate() {
+    this.newTask = true;
   }
 
   //need validation
   addTask() {
-    console.log('some data');
-    const newTask: Task = {
-      id: this.taskService.createNewId(),
-      title: this.title,
-      description: this.description,
-      date: this.date,
-      isCompleted: false,
-      isPinned: false,
-    };
+    if (this.title) {
+      const newTask: Task = {
+        id: this.taskService.createNewId(),
+        title: this.title,
+        description: this.description,
+        date: this.date,
+        isCompleted: false,
+        isPinned: false,
+      };
 
-    this.taskService.addTask(newTask);
+      this.taskService.addTask(newTask);
+      this.cancelTask();
+    }
   }
 }

@@ -1,6 +1,6 @@
 <div class="default-tasks">
   <app-task
-    *ngFor="let task of tasksService.getTasks() | isPinned"
+    *ngFor="let task of tasksService.getTasks() | isPinned; trackBy: identify"
     [task]="task"
   ></app-task>
 </div>
