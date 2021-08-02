@@ -14,13 +14,7 @@ export class TasksService {
   constructor(
     private dataService: DataService,
     private dateManageService: DateManageService
-  ) {
-    console.log(
-      this.dataService.tasks
-        .slice()
-        .map((task) => task.date?.toISOString().slice(0, 10))
-    );
-  }
+  ) {}
 
   addTask(task: Task): void {
     this.dataService.tasks.unshift(task);
