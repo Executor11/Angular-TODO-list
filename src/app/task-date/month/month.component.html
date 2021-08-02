@@ -1,0 +1,13 @@
+<div class="date_wrapper">
+  <div class="left-arrow" (click)="prevMonth()">
+    <i class="fas fa-chevron-left"></i>
+  </div>
+  <div class="date">
+    <div class="full_date">{{ startMonth | date }}</div>
+    <div class="full_date">-</div>
+    <div class="full_date">{{ endMonth | date }}</div>
+  </div>
+  <div class="right-arrow" (click)="nextMonth()">
+    <i class="fas fa-chevron-right"></i>
+  </div>
+</div>

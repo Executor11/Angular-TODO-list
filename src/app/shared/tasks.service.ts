@@ -1,33 +1,59 @@
 import { Injectable } from '@angular/core';
 import { DataService } from './data.service';
+import { DateManageService } from './date-manage.service';
 import { Task } from './task.model';
 
 @Injectable({ providedIn: 'root' })
+//
 export class TasksService {
+  //date filter
   date: Date = new Date();
-  constructor(private dataService: DataService) {
-    // this.date.setDate(this.date.getDate() - 1);
+  // filter by day, week, month, year
+  filterMethod: string = 'week';
+
+  constructor(
+    private dataService: DataService,
+    private dateManageService: DateManageService
+  ) {
+    console.log(
+      this.dataService.tasks
+        .slice()
+        .map((task) => task.date?.toISOString().slice(0, 10))
+    );
   }
 
   addTask(task: Task): void {
     this.dataService.tasks.unshift(task);
   }
 
+  checkDateEntrance(date: string): boolean {
+    const ranges = this.dateManageService.getWeekRanges().map((range) => {
+      return `${range.year}-${
+        String(range.month).length == 1 ? '0' + range.month : range.month
+      }-${String(range.day).length == 1 ? '0' + range.day : range.day}`;
+    });
+
+    return (
+      new Date(date) >= new Date(ranges[0]) &&
+      new Date(date) <= new Date(ranges[1])
+    );
+  }
+
   getTasks(): Task[] {
     return this.dataService.tasks.slice().filter((task) => {
-      if (typeof task.date === 'string') {
-        console.log(
-          task.date,
-          this.date.toString().slice(0, 10),
-          'this is new day'
-        );
+      // new task means if date is string return date, else return date to string and format "dd-mm-yyyy"
+      const taskDate =
+        typeof task.date === 'string'
+          ? task.date
+          : task.date!.toISOString().slice(0, 10);
 
-        return task.date === this.date.toISOString().slice(0, 10);
+      // filtering by day
+      if (this.filterMethod === 'day') {
+        return taskDate === this.date.toISOString().slice(0, 10);
+      } else {
+        // filtering by week, month, year
+        return this.checkDateEntrance(taskDate);
       }
-      return (
-        task.date!.toISOString().slice(0, 10) ===
-        this.date.toISOString().slice(0, 10)
-      );
     });
   }
 
@@ -44,9 +70,13 @@ export class TasksService {
     );
   }
 
+  // help getTasks function for filtering
   filterByDate(date: Date) {
-    console.log(date, this.date, 'filter');
-
     this.date = date;
+  }
+
+  //filering method by day, week, month, year
+  setFilterMethod(method: string) {
+    this.filterMethod = method;
   }
 }

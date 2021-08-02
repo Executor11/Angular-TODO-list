@@ -1,0 +1,13 @@
+<div class="date_wrapper">
+  <div class="left-arrow" (click)="prevFullYear()">
+    <i class="fas fa-chevron-left"></i>
+  </div>
+  <div class="date">
+    <div class="full_date">{{ startFullYear | date }}</div>
+    <div class="full_date">-</div>
+    <div class="full_date">{{ endFullYear | date }}</div>
+  </div>
+  <div class="right-arrow" (click)="nextFullYear()">
+    <i class="fas fa-chevron-right"></i>
+  </div>
+</div>

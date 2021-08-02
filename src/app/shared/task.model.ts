@@ -6,3 +6,9 @@ export interface Task {
   isCompleted?: boolean;
   isPinned?: boolean;
 }
+
+export interface DateRange {
+  day: number;
+  month: number;
+  year: number;
+}

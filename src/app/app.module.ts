@@ -5,13 +5,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-import { TaskDateComponent } from './task-date/task-date.component';
 import { NewTaskFormComponent } from './new-task-form/new-task-form.component';
 import { TaskContainerComponent } from './task-container/task-container.component';
 import { FormsModule } from '@angular/forms';
 import { TaskComponent } from './task-container/task/task.component';
 import { IsPinnedPipe } from './pipes/is-pinned.pipe';
 import { ClickOutsideModule } from 'ng-click-outside';
+import { DateRouteComponent } from './date-route/date-route.component';
+import { TaskDateComponent } from './task-date/task-date.component';
+import { DateRouteModule } from './date-route/date-route.module';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,11 @@ import { ClickOutsideModule } from 'ng-click-outside';
     DefaultTasksComponent,
     PinnedTasksComponent,
     TaskComponent,
+    DateRouteComponent,
 
     IsPinnedPipe,
   ],
-  imports: [BrowserModule, FormsModule, ClickOutsideModule],
+  imports: [BrowserModule, FormsModule, ClickOutsideModule, DateRouteModule],
   providers: [],
   bootstrap: [AppComponent],
 })

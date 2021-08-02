@@ -1,6 +1,19 @@
 <ul class="navigation">
-  <li class="active">Day</li>
-  <li>Week</li>
-  <li>Month</li>
-  <li>Year</li>
+  <li
+    routerLink="/"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    (click)="navToDay()"
+  >
+    Day
+  </li>
+  <li routerLink="/week" routerLinkActive="active" (click)="navToWeek()">
+    Week
+  </li>
+  <li routerLink="/month" routerLinkActive="active" (click)="navToWeek()">
+    Month
+  </li>
+  <li routerLink="/year" routerLinkActive="active" (click)="navToWeek()">
+    Year
+  </li>
 </ul>
