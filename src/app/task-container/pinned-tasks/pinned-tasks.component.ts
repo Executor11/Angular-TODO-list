@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from 'src/app/shared/tasks.service';
-import { Task } from 'src/app/shared/task.model';
-
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 @Component({
   selector: 'app-pinned-tasks',
   templateUrl: './pinned-tasks.component.html',

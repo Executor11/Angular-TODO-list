@@ -5,7 +5,7 @@ import { DateRange } from './task.model';
   providedIn: 'root',
 })
 export class DateManageService {
-  weekRanges: Array<DateRange> = [
+  dateRanges: Array<DateRange> = [
     {
       day: new Date().getDate(),
       month: new Date().getMonth() + 1,
@@ -18,12 +18,12 @@ export class DateManageService {
     },
   ];
 
-  getWeekRanges(): DateRange[] {
-    return this.weekRanges.slice();
+  getDateRanges(): DateRange[] {
+    return this.dateRanges.slice();
   }
 
-  setWeekRanges(startRange: Date, endRange: Date): void {
-    this.weekRanges = [
+  setDateRanges(startRange: Date, endRange: Date): void {
+    this.dateRanges = [
       {
         day: startRange.getDate(),
         month: startRange.getMonth() + 1,
@@ -35,7 +35,6 @@ export class DateManageService {
         year: endRange.getFullYear(),
       },
     ];
-    console.log(this.weekRanges);
   }
 
   constructor() {}

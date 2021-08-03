@@ -9,21 +9,21 @@ import { TasksService } from '../shared/tasks.service';
 export class TaskDateComponent implements OnInit {
   date: Date = new Date();
 
-  constructor(private taskService: TasksService) {
-    // this.date.setDate(this.date.getDate() + 1);
-  }
+  constructor(private tasksService: TasksService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.tasksService.setFilterMethod('day');
+  }
 
   nextDay() {
     this.date.setDate(this.date.getDate() + 1);
     this.date = new Date(this.date);
-    this.taskService.filterByDate(this.date);
+    this.tasksService.filterByDate(this.date);
   }
 
   prevDay() {
     this.date.setDate(this.date.getDate() - 1);
     this.date = new Date(this.date);
-    this.taskService.filterByDate(this.date);
+    this.tasksService.filterByDate(this.date);
   }
 }

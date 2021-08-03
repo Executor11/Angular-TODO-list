@@ -1,11 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../shared/tasks.service';
 import { Task } from 'src/app/shared/task.model';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-new-task-form',
   templateUrl: './new-task-form.component.html',
   styleUrls: ['./new-task-form.component.scss'],
+  animations: [
+    trigger('open', [
+      state('create', style({ opacity: 0 })),
+      transition(':enter', [
+        style({
+          height: '300px',
+          opacity: 1,
+        }),
+        animate('0.3s ease-in-out'),
+      ]),
+      // transition(':leave', animate(2000, style({ opacity: 0.5 }))),
+    ]),
+  ],
 })
 export class NewTaskFormComponent implements OnInit {
   newTask: boolean = false;

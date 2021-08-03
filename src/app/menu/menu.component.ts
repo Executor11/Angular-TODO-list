@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
     this.tasksService.setFilterMethod('day');
   }
 
-  navToWeek() {
+  navToOtherDate() {
     this.tasksService.setFilterMethod('week or other');
   }
 }

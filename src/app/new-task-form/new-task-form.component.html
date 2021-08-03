@@ -1,5 +1,5 @@
 <div class="forms-control">
-  <form *ngIf="newTask; else tasks">
+  <form *ngIf="newTask; else tasks" [@open]="'in'">
     <div class="task task-forms">
       <input
         [(ngModel)]="title"

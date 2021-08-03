@@ -14,6 +14,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { DateRouteComponent } from './date-route/date-route.component';
 import { TaskDateComponent } from './task-date/task-date.component';
 import { DateRouteModule } from './date-route/date-route.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,10 +27,15 @@ import { DateRouteModule } from './date-route/date-route.module';
     PinnedTasksComponent,
     TaskComponent,
     DateRouteComponent,
-
     IsPinnedPipe,
   ],
-  imports: [BrowserModule, FormsModule, ClickOutsideModule, DateRouteModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ClickOutsideModule,
+    DateRouteModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -9,7 +9,7 @@ export class TasksService {
   //date filter
   date: Date = new Date();
   // filter by day, week, month, year
-  filterMethod: string = 'week';
+  filterMethod: string = 'day';
 
   constructor(
     private dataService: DataService,
@@ -21,7 +21,7 @@ export class TasksService {
   }
 
   checkDateEntrance(date: string): boolean {
-    const ranges = this.dateManageService.getWeekRanges().map((range) => {
+    const ranges = this.dateManageService.getDateRanges().map((range) => {
       return `${range.year}-${
         String(range.month).length == 1 ? '0' + range.month : range.month
       }-${String(range.day).length == 1 ? '0' + range.day : range.day}`;

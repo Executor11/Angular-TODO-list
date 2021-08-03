@@ -1,4 +1,4 @@
-<div class="task-container">
+<div class="task-container" [@simpleFadeAnimation]="'create'">
   <i class="fas fa-thumbtack pinned" *ngIf="task.isPinned"></i>
   <label class="label">
     <input type="checkbox" class="checkbox" [(ngModel)]="task.isCompleted" />
@@ -20,7 +20,7 @@
     >
       <i class="fas fa-ellipsis-h"></i>
 
-      <ul class="drop-down" *ngIf="isOpen">
+      <ul class="drop-down" *ngIf="isOpen" [@show]>
         <li (click)="pinTask()">
           <i class="fas fa-thumbtack"></i>
           {{ task.isPinned ? "Unpin" : "Pin on the top" }}
