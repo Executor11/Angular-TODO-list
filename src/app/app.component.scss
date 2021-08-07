@@ -48,3 +48,10 @@ app-new-task-form {
 app-task-container {
   grid-row: 4/-1;
 }
+
+@media all and (max-width: 550px) {
+  .wrapper {
+    width: 95%;
+    height: 600px;
+  }
+}

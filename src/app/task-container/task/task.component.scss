@@ -134,3 +134,18 @@
     transform: rotate(225deg);
   }
 }
+
+@media all and (max-width: 450px) {
+  li {
+    width: 40px;
+  }
+
+  .drop-down {
+    padding: 0.2rem;
+
+    li {
+      width: 100%;
+      height: (100% /3);
+    }
+  }
+}

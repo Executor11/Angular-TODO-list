@@ -65,3 +65,10 @@ li {
 
   border-bottom: 2px solid $border-color;
 }
+
+@media all and (max-width: 450px) {
+  li {
+    width: 40px;
+    // margin: 10px;
+  }
+}

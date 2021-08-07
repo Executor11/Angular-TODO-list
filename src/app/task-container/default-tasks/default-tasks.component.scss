@@ -5,3 +5,9 @@
   margin: 1rem 3rem;
   height: 100%;
 }
+
+@media all and (max-width: 450px) {
+  .default-tasks {
+    margin: 1rem 1.5rem;
+  }
+}
